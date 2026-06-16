@@ -1,0 +1,112 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 25.794871794871824,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 344.87179487179492,
+            "y": 373.85897435897431
+          },
+          "nodeIndex": "Dim_Admissao",
+          "nodeLineageTag": "572c6895-0c54-4bc1-ac8a-c243de3ccd07",
+          "size": {
+            "height": 251.64102564102569,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1013.4871794871796,
+            "y": 363.03846153846149
+          },
+          "nodeIndex": "Dim_Clinico",
+          "nodeLineageTag": "5736f072-d636-43d0-b12e-00187581c512",
+          "size": {
+            "height": 263.025641025641,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 344.923076923077,
+            "y": 38.3205128205128
+          },
+          "nodeIndex": "Dim_Paciente",
+          "nodeLineageTag": "32d3048c-7561-416d-911e-8b781d393426",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1020.6153846153845,
+            "y": 37.499999999999979
+          },
+          "nodeIndex": "Dim_Tratamento",
+          "nodeLineageTag": "fe3a4ec0-3f1e-47d7-98c9-1478f5524c2c",
+          "size": {
+            "height": 232.05128205128204,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 689.2307692307694,
+            "y": 138.78205128205127
+          },
+          "nodeIndex": "Fato_Intenacao",
+          "nodeLineageTag": "b9b607fb-57c2-4b6a-90c2-8a066edda422",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 193.32051282051282
+          },
+          "nodeIndex": "Dim_Calendario",
+          "nodeLineageTag": "e2ae1091-4271-4f30-8685-e827fa0bf486",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1304.6153846153845,
+            "y": 206.78205128205127
+          },
+          "nodeIndex": "_Medidas",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 78,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

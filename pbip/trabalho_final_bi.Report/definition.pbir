@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../trabalho_final_bi.SemanticModel"
+    },
+    "byConnection": null
+  }
+}
