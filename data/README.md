@@ -35,7 +35,7 @@ O dataset **não contém nenhuma coluna de data**. A documentação oficial do U
 
 Para viabilizar a `Dim_Calendario` (exigência do projeto) e o uso de funções de Time Intelligence em DAX, foi criada uma coluna `ano` no Power Query, **distribuindo os 101.766 registros de forma proporcional e sequencial entre 1999 e 2008** (~10.176 registros por ano).
 
-Essa coluna é **sintética** — não reflete a data real de cada internação, apenas viabiliza a análise de tendência ano a ano de forma didaticamente coerente com a estrutura exigida pelo projeto. Essa limitação é citada de forma transparente na documentação.
+Essa coluna é **sintética**, não reflete a data real de cada internação, apenas viabiliza a análise de tendência ano a ano de forma didaticamente coerente com a estrutura exigida pelo projeto. Essa limitação é citada de forma transparente na documentação.
 
 ---
 
