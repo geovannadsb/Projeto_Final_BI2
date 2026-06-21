@@ -1,0 +1,5 @@
+role 'Diretor Clínico'
+	modelPermission: read
+
+	annotation PBI_Id = 4f4122b91eb74df4bd703564e34a9938
+

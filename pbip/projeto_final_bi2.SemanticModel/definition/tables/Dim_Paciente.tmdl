@@ -1,0 +1,118 @@
+table Dim_Paciente
+	lineageTag: 32d3048c-7561-416d-911e-8b781d393426
+
+	column ID_do_encontro
+		dataType: int64
+		formatString: 0
+		lineageTag: bd674458-f2f6-4d4e-830b-860cd86c7b9a
+		summarizeBy: none
+		sourceColumn: ID_do_encontro
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_paciente
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cc6b5df-b96e-41e4-b629-7b342aa7e7a5
+		summarizeBy: none
+		sourceColumn: SK_paciente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Paciente_Nbr
+		dataType: int64
+		formatString: 0
+		lineageTag: 72b24eb8-6296-4838-b4d8-380a9a743472
+		summarizeBy: none
+		sourceColumn: Paciente_Nbr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Raca
+		dataType: string
+		lineageTag: 4088ae6f-cb4a-4f55-b760-b49d04c66c09
+		summarizeBy: none
+		sourceColumn: Raca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Genero
+		dataType: string
+		lineageTag: 8e687dd8-5905-4e79-b6a4-badad0b27320
+		summarizeBy: none
+		sourceColumn: Genero
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idade
+		dataType: string
+		lineageTag: 0312e08d-e0bd-44c1-8f4f-8ff5c7fac2b9
+		summarizeBy: none
+		sourceColumn: Idade
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Paciente = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\geova\OneDrive - UniCEUB\Projeto_Final_BI_II\dados\diabetic_data.csv"),[Delimiter=",", Columns=50, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"encounter_id", Int64.Type}, {"patient_nbr", Int64.Type}, {"race", type text}, {"gender", type text}, {"age", type text}, {"weight", type text}, {"admission_type_id", Int64.Type}, {"discharge_disposition_id", Int64.Type}, {"admission_source_id", Int64.Type}, {"time_in_hospital", Int64.Type}, {"payer_code", type text}, {"medical_specialty", type text}, {"num_lab_procedures", Int64.Type}, {"num_procedures", Int64.Type}, {"num_medications", Int64.Type}, {"number_outpatient", Int64.Type}, {"number_emergency", Int64.Type}, {"number_inpatient", Int64.Type}, {"diag_1", type text}, {"diag_2", type text}, {"diag_3", type text}, {"number_diagnoses", Int64.Type}, {"max_glu_serum", type text}, {"A1Cresult", type text}, {"metformin", type text}, {"repaglinide", type text}, {"nateglinide", type text}, {"chlorpropamide", type text}, {"glimepiride", type text}, {"acetohexamide", type text}, {"glipizide", type text}, {"glyburide", type text}, {"tolbutamide", type text}, {"pioglitazone", type text}, {"rosiglitazone", type text}, {"acarbose", type text}, {"miglitol", type text}, {"troglitazone", type text}, {"tolazamide", type text}, {"examide", type text}, {"citoglipton", type text}, {"insulin", type text}, {"glyburide-metformin", type text}, {"glipizide-metformin", type text}, {"glimepiride-pioglitazone", type text}, {"metformin-rosiglitazone", type text}, {"metformin-pioglitazone", type text}, {"change", type text}, {"diabetesMed", type text}, {"readmitted", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"weight", "payer_code"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas",{{"encounter_id", "ID_do_encontro"}, {"patient_nbr", "paciente_nbr"}, {"race", "raca"}, {"gender", "genero"}, {"age", "idade"}, {"admission_type_id", "ID_tipo_de_admissao"}, {"discharge_disposition_id", "ID_disposição_de_alta"}, {"admission_source_id", "ID_fonte_de_admissao"}, {"time_in_hospital", "Dias_de_Internação"}, {"medical_specialty", "especialidade_medica"}, {"num_lab_procedures", "Qtd_Exames_Laboratoriais"}, {"num_procedures", "Qtd_Outros_Procedimentos"}, {"num_medications", "Qtd_Medicamentos"}, {"number_outpatient", "Consultas_Ambulatoriais_Anterior"}, {"number_emergency", "Visitas_Pronto_Socorro"}, {"number_inpatient", "Internacoes_Anteriores"}, {"diag_1", "Diagnostico_Primario"}, {"diag_2", "Diagnostico_Segudario"}, {"diag_3", "Diagnostico_Terciario"}, {"number_diagnoses", "Total_Diagnosticos"}, {"max_glu_serum", "Teste_de_Glicemia"}, {"A1Cresult", "Exame_HbA1c"}, {"metformin", "Metformina"}, {"repaglinide", "Alteracao_na_Medicacao"}, {"nateglinide", "Nateglinida"}, {"chlorpropamide", "Clorpropamida"}, {"glimepiride", "Glimepirida"}, {"acetohexamide", "Acetohexamide"}, {"glipizide", "Glipizida"}, {"glyburide", "Gliburida"}, {"tolbutamide", "Tolbutamida"}, {"pioglitazone", "Pioglitazona"}, {"rosiglitazone", "Rosiglitazone"}, {"acarbose", "Acarbose"}, {"miglitol", "Miglitol"}, {"troglitazone", "Troglitazona"}, {"tolazamide", "Tolazamida"}, {"examide", "Examida"}, {"citoglipton", "Sitagliptin"}, {"insulin", "Insulina"}, {"glyburide-metformin", "Gliburida-Metformina"}, {"glipizide-metformin", "Glipizida-Metformina"}, {"glimepiride-pioglitazone", "Metformina-Rosiglitazona"}}),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Colunas Renomeadas",{"metformin-rosiglitazone"}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Colunas Removidas1",{{"change", "Mudou_medicamento"}, {"diabetesMed", "Prescricao_de_Medicamento"}, {"readmitted", "Readmissao"}, {"paciente_nbr", "Paciente_Nbr"}, {"raca", "Raca"}, {"genero", "Genero"}, {"idade", "Idade"}, {"metformin-pioglitazone", "Metformina_pioglitazona"}}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Colunas Renomeadas1", "Readmissao_30d", each if [Readmissao] = "<30" then 1 else 0),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Condicional Adicionada",{{"Readmissao_30d", Int64.Type}}),
+				    #"Colunas Renomeadas2" = Table.RenameColumns(#"Tipo Alterado1",{{"Diagnostico_Segudario", "Diagnostico_Secundario"}}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Colunas Renomeadas2", "Risco_DRC", each if Text.StartsWith([Diagnostico_Primario], "585") or
+				   Text.StartsWith([Diagnostico_Primario], "403") or
+				   Text.StartsWith([Diagnostico_Primario], "250.4") or
+				   Text.StartsWith([Diagnostico_Secundario], "585") or
+				   Text.StartsWith([Diagnostico_Secundario], "403") or
+				   Text.StartsWith([Diagnostico_Secundario], "250.4") or
+				   Text.StartsWith([Diagnostico_Terciario], "585") or
+				   Text.StartsWith([Diagnostico_Terciario], "403") or
+				   Text.StartsWith([Diagnostico_Terciario], "250.4")
+				then 1 else 0),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"Risco_DRC", Int64.Type}}),
+				    #"Índice Adicionado" = Table.AddIndexColumn(#"Tipo Alterado2", "Índice", 1, 1, Int64.Type),
+				    #"Personalização Adicionada1" = Table.AddColumn(#"Índice Adicionado", "Ano", each 1999 + Number.IntegerDivide([Índice] - 1, Number.IntegerDivide(101766, 10))),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Personalização Adicionada1", each true),
+				    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"Ano", Int64.Type}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado3",2009,2008,Replacer.ReplaceValue,{"Ano"}),
+				    #"Tipo Alterado4" = Table.TransformColumnTypes(#"Valor Substituído",{{"Ano", Int64.Type}}),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Tipo Alterado4", each true),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"Linhas Filtradas1",{"Índice", "ID_tipo_de_admissao", "ID_disposição_de_alta", "ID_fonte_de_admissao", "Dias_de_Internação", "especialidade_medica", "Qtd_Exames_Laboratoriais", "Qtd_Outros_Procedimentos", "Qtd_Medicamentos", "Consultas_Ambulatoriais_Anterior", "Visitas_Pronto_Socorro", "Internacoes_Anteriores", "Diagnostico_Primario", "Diagnostico_Secundario", "Diagnostico_Terciario", "Total_Diagnosticos", "Teste_de_Glicemia", "Exame_HbA1c", "Metformina", "Alteracao_na_Medicacao", "Nateglinida", "Clorpropamida", "Glimepirida", "Acetohexamide", "Glipizida", "Gliburida", "Tolbutamida", "Pioglitazona", "Rosiglitazone", "Acarbose", "Miglitol", "Troglitazona", "Tolazamida", "Examida", "Sitagliptin", "Insulina", "Gliburida-Metformina", "Glipizida-Metformina", "Metformina-Rosiglitazona", "Metformina_pioglitazona", "Mudou_medicamento", "Prescricao_de_Medicamento", "Readmissao", "Readmissao_30d", "Risco_DRC", "Ano"}),
+				    #"Índice Adicionado1" = Table.AddIndexColumn(#"Colunas Removidas2", "Índice", 1, 1, Int64.Type),
+				    #"Colunas Renomeadas3" = Table.RenameColumns(#"Índice Adicionado1",{{"Índice", "SK_paciente"}}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Colunas Renomeadas3",{"SK_paciente", "ID_do_encontro", "Paciente_Nbr", "Raca", "Genero", "Idade"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Colunas Reordenadas","Male","Masculino",Replacer.ReplaceText,{"Genero"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Female","Feminino",Replacer.ReplaceText,{"Genero"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","Caucasian","Caucasiano",Replacer.ReplaceText,{"Raca"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","AfricanAmerican","Afro-Americano",Replacer.ReplaceText,{"Raca"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","Hispanic","Hispânico",Replacer.ReplaceText,{"Raca"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","Asian","Asiático",Replacer.ReplaceText,{"Raca"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","Other","Outro",Replacer.ReplaceText,{"Raca"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value6", each true),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Filtered Rows","?","Não informado",Replacer.ReplaceText,{"Raca"})
+				in
+				    #"Replaced Value7"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

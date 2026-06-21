@@ -1,0 +1,27 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["diabetic_data","Fato_Intenacao","Dim_Paciente","Dim_Admissao","Dim_Clinico","Dim_Tratamento"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Dim_Paciente
+ref table Dim_Admissao
+ref table Dim_Clinico
+ref table Fato_Intenacao
+ref table Dim_Tratamento
+ref table Dim_Calendario
+ref table _Medidas
+
+ref role 'Diretor Clínico'
+ref role 'Gerente de Qualidade Assistencial'
+
+ref cultureInfo pt-BR
+

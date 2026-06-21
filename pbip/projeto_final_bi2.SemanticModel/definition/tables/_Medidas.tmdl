@@ -1,0 +1,104 @@
+table _Medidas
+	lineageTag: 40f77ffe-d0ab-45d5-a6fa-2ddd60a75e67
+
+	measure 'Total de Internações' = COUNTROWS(Fato_Intenacao)
+		formatString: 0
+		lineageTag: f3c08a78-1981-4177-a706-70332e07953e
+
+	measure 'Total de Pacientes' = DISTINCTCOUNT(Dim_Paciente[Paciente_Nbr])
+		formatString: 0
+		lineageTag: 679a9c23-88ec-46f4-b0f9-022077f7f01b
+
+	measure 'Média de Dias Internado' = AVERAGE(Fato_Intenacao[Dias_de_Internação])
+		lineageTag: f10f0714-b86c-460d-8fe4-0a15642027a9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total de Medicamentos Prescritos' = SUM(Fato_Intenacao[Qtd_Medicamentos])
+		formatString: 0
+		lineageTag: 721df12f-6a05-4678-bc4b-e4fb37cd0777
+
+	measure 'Maior Tempo de Internação' = MAX(Fato_Intenacao[Dias_de_Internação])
+		formatString: 0
+		lineageTag: bae1d293-1468-4377-86fc-098526db2b6a
+
+	measure '% Readmissão em 30 dias' =
+			
+			DIVIDE(
+			    CALCULATE( COUNTROWS(Fato_Intenacao), Fato_Intenacao[Readmissao_30d] = 1 ),
+			    [Total de Internações]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a783e18b-6a66-4d39-8641-ce6504738c15
+
+	measure '% Risco DRC' =
+			
+			DIVIDE(
+			    CALCULATE( COUNTROWS(Fato_Intenacao), Fato_Intenacao[Risco_DRC] = 1 ),
+			    [Total de Internações]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f754bf0f-615e-4885-a0af-9eff6a6d602b
+
+	measure '% Readmissão (Risco DRC)' =
+			
+			// Mede a taxa de readmissão em 30 dias considerando apenas internações com indício de risco renal (Risco_DRC = 1).Compara com a medida geral para testar a hipótese central do projeto.
+			CALCULATE(
+			    [% Readmissão em 30 dias],
+			    Fato_Intenacao[Risco_DRC] = 1
+			)
+		lineageTag: 80ebb5db-e435-44de-9bfc-85f29d25c5ca
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Readmissão (Emergência)' =
+			
+			CALCULATE(
+			    [% Readmissão em 30 dias],
+			    Dim_Admissao[tipo_admissao] = "Emergência"
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 70667f63-3179-41f0-be24-af465db9d652
+
+	measure 'Internações YTD' =
+			
+			// Calcula o acumulado de internações desde o início do ano (1º de janeiro)até a data em contexto. Como o calendário sintético tem só uma data por ano, o resultado equivale ao total anual
+			TOTALYTD([Total de Internações], Dim_Calendario[Date])
+		formatString: 0
+		lineageTag: f77bb626-681f-4c31-a0da-68f00fe0ea1a
+
+	measure 'Internações Ano Anterior' =
+			
+			// Desloca o filtro de data 1 ano para trás, permitindo comparar o período atual com o mesmo período do ano anterior.
+			CALCULATE(
+			    [Total de Internações],
+			    SAMEPERIODLASTYEAR(Dim_Calendario[Date])
+			)
+		formatString: 0
+		lineageTag: 5b42767d-d51e-409a-b9b0-7b4f5e556ec8
+
+	measure 'Variação YoY (%)' =
+			
+			// Calcula a variação percentual entre o ano atual e o anterior.DIVIDE evita erro de divisão por zero quando não há ano anterior (1999).
+			DIVIDE(
+			    [Total de Internações] - [Internações Ano Anterior],
+			    [Internações Ano Anterior]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a5aab2ae-02d6-47fb-836e-798c38dd34c0
+
+	column Medidas
+		isHidden
+		lineageTag: 39833eaf-8687-4d98-8d39-7d372e4f8628
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Medidas]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas = calculated
+		mode: import
+		source = ROW("Medidas", "Tabela de Medidas")
+
+	annotation PBI_Id = b354d6d13bb64401818646713a92e860
+

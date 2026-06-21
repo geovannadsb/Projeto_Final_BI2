@@ -2,7 +2,7 @@
   <img src="https://img.shields.io/badge/CEUB-Centro%20Universit%C3%A1rio%20de%20Bras%C3%ADlia-3D0E45?style=for-the-badge&labelColor=3D0E45&color=EC0C8D" />
 </p>
 
-<h1 align="center"> Readmissão Hospitalar e Risco Renal em Pacientes Diabéticos</h1>
+<h1 align="center">Readmissão Hospitalar e Risco Renal em Pacientes Diabéticos</h1>
 
 <p align="center">
   <b>Projeto Final — Business Intelligence II</b><br>
@@ -50,7 +50,7 @@ Mais detalhes sobre o tratamento dos dados em [`data/README.md`](data/README.md)
 | Taxa de Readmissão em 30 dias (pacientes com Risco DRC) | **15,60%** |
 | Proporção de internações com indício de Risco DRC | **9,23%** |
 | Tempo médio de internação | **4,40 dias** |
-| Variação anual de internações (YoY) | ~11% (exemplo) |
+| Variação anual de internações (YoY) | ~11% |
 
 Detalhamento completo em [`docs/kpis_okrs.md`](docs/kpis_okrs.md).
 
@@ -68,21 +68,19 @@ Dim_Paciente ────── Fato_Internacao ────── Dim_Admissao
 ```
 
 - **1 Tabela Fato**: `Fato_Internacao` — granularidade de 1 linha por internação
-- **5 Dimensões**: Paciente, Admissão, Clínico, Tratamento e Calendário (esta última construída em DAX)
+- **5 Dimensões**: Paciente, Admissão, Clínico, Tratamento e Calendário (construída em DAX)
 
-Decisões de modelagem detalhadas em [`docs/decisoes_de_modelagem.md`](docs/decisoes_de_modelagem.md).
+Decisões de modelagem detalhadas em [`docs/decisoes_de_modelagem.md`](docs/decisoes_de_modelagem.md).  
 Diagrama visual em [`docs/modelo_dimensional.png`](docs/modelo_dimensional.png).
 
 ---
 
 ## Row-Level Security (RLS)
 
-O modelo conta com 2 papéis de segurança:
-
 | Papel | Visão |
 |---|---|
 | Diretor Clínico | Acesso total a todos os dados |
-| Gerente de Qualidade | Visualiza apenas internações com readmissão em até 30 dias |
+| Gerente de Qualidade Assistencial | Apenas internações com readmissão em até 30 dias |
 
 Detalhes e prints de teste em [`docs/rls.md`](docs/rls.md).
 
@@ -92,10 +90,11 @@ Detalhes e prints de teste em [`docs/rls.md`](docs/rls.md).
 
 1. Clone este repositório:
    ```
-   git clone https://github.com/geovannadsb/ProjetoFinal_BI_II
+   git clone https://github.com/geovannadsb/Projeto_Final_BI2.git
    ```
-2. Abra a pasta `pbip/` no **Power BI Desktop** (versão de junho/2026 ou mais recente)
-3. Abra o arquivo `.pbip` — o Power BI vai carregar automaticamente o modelo, as medidas e os relatórios
+2. Abra o **Power BI Desktop** (versão de junho/2026 ou mais recente)
+3. Abra o arquivo `projeto_final_bi2.pbip` dentro da pasta `pbip/`
+4. O Power BI carrega automaticamente o modelo, as medidas e os relatórios
 
 ---
 
@@ -103,19 +102,21 @@ Detalhes e prints de teste em [`docs/rls.md`](docs/rls.md).
 
 ```
 .
+├── README.md
+├── docs/
+│   ├── problema_de_negocio.md
+│   ├── kpis_okrs.md
+│   ├── modelo_dimensional.png
+│   ├── decisoes_de_modelagem.md
+│   ├── rls.md
+│   ├── rls_diretor_clinico.png
+│   └── rls_gerente_qualidade.png
 ├── data/
 │   └── README.md
-├── docs/
-│   ├── decisoes_de_modelagem.md
-│   ├── kpis_okrs.md
-│   ├── problema_de_negocio.md
-│   ├── rls.md
-│   └── modelo_dimensional.png
 ├── pbip/
-│   └── diabetes_readmissao_bi.pbip + pastas associadas
-├── apresentacao/
-│   └── slides.pdf
-└── README.md
+│   └── trabalho_final_bi2.pbip + pastas associadas
+└── apresentacao/
+    └── slides.pdf
 ```
 
 ---

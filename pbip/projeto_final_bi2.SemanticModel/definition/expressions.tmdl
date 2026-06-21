@@ -1,0 +1,40 @@
+expression diabetic_data =
+		let
+		    Fonte = Csv.Document(File.Contents("C:\Users\geova\OneDrive - UniCEUB\Projeto_Final_BI_II\dados\diabetic_data.csv"),[Delimiter=",", Columns=50, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"encounter_id", Int64.Type}, {"patient_nbr", Int64.Type}, {"race", type text}, {"gender", type text}, {"age", type text}, {"weight", type text}, {"admission_type_id", Int64.Type}, {"discharge_disposition_id", Int64.Type}, {"admission_source_id", Int64.Type}, {"time_in_hospital", Int64.Type}, {"payer_code", type text}, {"medical_specialty", type text}, {"num_lab_procedures", Int64.Type}, {"num_procedures", Int64.Type}, {"num_medications", Int64.Type}, {"number_outpatient", Int64.Type}, {"number_emergency", Int64.Type}, {"number_inpatient", Int64.Type}, {"diag_1", type text}, {"diag_2", type text}, {"diag_3", type text}, {"number_diagnoses", Int64.Type}, {"max_glu_serum", type text}, {"A1Cresult", type text}, {"metformin", type text}, {"repaglinide", type text}, {"nateglinide", type text}, {"chlorpropamide", type text}, {"glimepiride", type text}, {"acetohexamide", type text}, {"glipizide", type text}, {"glyburide", type text}, {"tolbutamide", type text}, {"pioglitazone", type text}, {"rosiglitazone", type text}, {"acarbose", type text}, {"miglitol", type text}, {"troglitazone", type text}, {"tolazamide", type text}, {"examide", type text}, {"citoglipton", type text}, {"insulin", type text}, {"glyburide-metformin", type text}, {"glipizide-metformin", type text}, {"glimepiride-pioglitazone", type text}, {"metformin-rosiglitazone", type text}, {"metformin-pioglitazone", type text}, {"change", type text}, {"diabetesMed", type text}, {"readmitted", type text}}),
+		    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"weight", "payer_code"}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas",{{"encounter_id", "ID_do_encontro"}, {"patient_nbr", "paciente_nbr"}, {"race", "raca"}, {"gender", "genero"}, {"age", "idade"}, {"admission_type_id", "ID_tipo_de_admissao"}, {"discharge_disposition_id", "ID_disposição_de_alta"}, {"admission_source_id", "ID_fonte_de_admissao"}, {"time_in_hospital", "Dias_de_Internação"}, {"medical_specialty", "especialidade_medica"}, {"num_lab_procedures", "Qtd_Exames_Laboratoriais"}, {"num_procedures", "Qtd_Outros_Procedimentos"}, {"num_medications", "Qtd_Medicamentos"}, {"number_outpatient", "Consultas_Ambulatoriais_Anterior"}, {"number_emergency", "Visitas_Pronto_Socorro"}, {"number_inpatient", "Internacoes_Anteriores"}, {"diag_1", "Diagnostico_Primario"}, {"diag_2", "Diagnostico_Segudario"}, {"diag_3", "Diagnostico_Terciario"}, {"number_diagnoses", "Total_Diagnosticos"}, {"max_glu_serum", "Teste_de_Glicemia"}, {"A1Cresult", "Exame_HbA1c"}, {"metformin", "Metformina"}, {"repaglinide", "Alteracao_na_Medicacao"}, {"nateglinide", "Nateglinida"}, {"chlorpropamide", "Clorpropamida"}, {"glimepiride", "Glimepirida"}, {"acetohexamide", "Acetohexamide"}, {"glipizide", "Glipizida"}, {"glyburide", "Gliburida"}, {"tolbutamide", "Tolbutamida"}, {"pioglitazone", "Pioglitazona"}, {"rosiglitazone", "Rosiglitazone"}, {"acarbose", "Acarbose"}, {"miglitol", "Miglitol"}, {"troglitazone", "Troglitazona"}, {"tolazamide", "Tolazamida"}, {"examide", "Examida"}, {"citoglipton", "Sitagliptin"}, {"insulin", "Insulina"}, {"glyburide-metformin", "Gliburida-Metformina"}, {"glipizide-metformin", "Glipizida-Metformina"}, {"glimepiride-pioglitazone", "Metformina-Rosiglitazona"}}),
+		    #"Colunas Removidas1" = Table.RemoveColumns(#"Colunas Renomeadas",{"metformin-rosiglitazone"}),
+		    #"Colunas Renomeadas1" = Table.RenameColumns(#"Colunas Removidas1",{{"change", "Mudou_medicamento"}, {"diabetesMed", "Prescricao_de_Medicamento"}, {"readmitted", "Readmissao"}, {"paciente_nbr", "Paciente_Nbr"}, {"raca", "Raca"}, {"genero", "Genero"}, {"idade", "Idade"}, {"metformin-pioglitazone", "Metformina_pioglitazona"}}),
+		    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Colunas Renomeadas1", "Readmissao_30d", each if [Readmissao] = "<30" then 1 else 0),
+		    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Condicional Adicionada",{{"Readmissao_30d", Int64.Type}}),
+		    #"Colunas Renomeadas2" = Table.RenameColumns(#"Tipo Alterado1",{{"Diagnostico_Segudario", "Diagnostico_Secundario"}}),
+		    #"Personalização Adicionada" = Table.AddColumn(#"Colunas Renomeadas2", "Risco_DRC", each if Text.StartsWith([Diagnostico_Primario], "585") or
+		   Text.StartsWith([Diagnostico_Primario], "403") or
+		   Text.StartsWith([Diagnostico_Primario], "250.4") or
+		   Text.StartsWith([Diagnostico_Secundario], "585") or
+		   Text.StartsWith([Diagnostico_Secundario], "403") or
+		   Text.StartsWith([Diagnostico_Secundario], "250.4") or
+		   Text.StartsWith([Diagnostico_Terciario], "585") or
+		   Text.StartsWith([Diagnostico_Terciario], "403") or
+		   Text.StartsWith([Diagnostico_Terciario], "250.4")
+		then 1 else 0),
+		    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"Risco_DRC", Int64.Type}}),
+		    #"Índice Adicionado" = Table.AddIndexColumn(#"Tipo Alterado2", "Índice", 1, 1, Int64.Type),
+		    #"Personalização Adicionada1" = Table.AddColumn(#"Índice Adicionado", "Ano", each 1999 + Number.IntegerDivide([Índice] - 1, Number.IntegerDivide(101766, 10))),
+		    #"Linhas Filtradas" = Table.SelectRows(#"Personalização Adicionada1", each true),
+		    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"Ano", Int64.Type}}),
+		    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado3",2009,2008,Replacer.ReplaceValue,{"Ano"}),
+		    #"Tipo Alterado4" = Table.TransformColumnTypes(#"Valor Substituído",{{"Ano", Int64.Type}}),
+		    #"Linhas Filtradas1" = Table.SelectRows(#"Tipo Alterado4", each true),
+		    #"Colunas Removidas2" = Table.RemoveColumns(#"Linhas Filtradas1",{"Índice"}),
+		    #"Colunas Renomeadas3" = Table.RenameColumns(#"Colunas Removidas2",{{"especialidade_medica", "Especialidade_medica"}, {"Alteracao_na_Medicacao", "Repaglinida"}, {"Acetohexamide", "Acetohexamida"}, {"Rosiglitazone", "Rosiglitazona"}})
+		in
+		    #"Colunas Renomeadas3"
+	lineageTag: dea67636-5568-4ddf-bed8-687a79c2e3ec
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,9 @@
+role 'Gerente de Qualidade Assistencial'
+	modelPermission: read
+
+	tablePermission _Medidas
+
+	tablePermission Fato_Intenacao = [Readmissao_30d] = 1
+
+	annotation PBI_Id = 11c55e0235e44ec0867b762c618cca32
+

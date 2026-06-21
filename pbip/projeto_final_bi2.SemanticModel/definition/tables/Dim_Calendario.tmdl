@@ -1,0 +1,90 @@
+table Dim_Calendario
+	lineageTag: e2ae1091-4271-4f30-8685-e827fa0bf486
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: d64cc595-c34e-4d68-9663-52a0391d0855
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ano
+		formatString: 0
+		lineageTag: ef4a71e1-13f5-430f-95d4-7dc6a7242f54
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	column trimestre
+		lineageTag: de0e56e1-83ce-4487-8a28-a2c1390d0b74
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [trimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column semestre
+		lineageTag: 10c5c58f-57d6-4b37-aaca-c54053269ee1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [semestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes_num
+		formatString: 0
+		lineageTag: 6c44b705-d12e-4e0f-a972-d77e39450c64
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [mes_num]
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_mes
+		lineageTag: 93507f18-cb2c-4241-88c6-4fee9d7de663
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [nome_mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia_da_semana
+		lineageTag: 51e3a2b8-50bb-4872-bd1f-a28e64722804
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [dia_da_semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_fim_de_semana
+		formatString: 0
+		lineageTag: e00195d4-f7fa-4406-951d-b882f550e1ca
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [is_fim_de_semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Calendario = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS (
+				    CALENDAR ( DATE(1999,1,1), DATE(2008,12,31) ),
+				    "ano", YEAR ( [Date] ),
+				    "trimestre", "T" & QUARTER ( [Date] ),
+				    "semestre", IF ( MONTH ( [Date] ) <= 6, "1º Semestre", "2º Semestre" ),
+				    "mes_num", MONTH ( [Date] ),
+				    "nome_mes", FORMAT ( [Date], "MMMM" ),
+				    "dia_da_semana", FORMAT ( [Date], "dddd" ),
+				    "is_fim_de_semana", IF ( WEEKDAY ( [Date], 2 ) > 5, 1, 0 )
+				)
+
+	annotation PBI_Id = 67d9b0f89b9e4ecbadca954d4c18a748
+

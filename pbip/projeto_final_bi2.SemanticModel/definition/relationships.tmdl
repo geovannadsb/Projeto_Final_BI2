@@ -1,0 +1,20 @@
+relationship b72aa6fe-9f39-b2ac-2883-cf47dd2fa247
+	fromColumn: Fato_Intenacao.ID_do_encontro
+	toColumn: Dim_Paciente.ID_do_encontro
+
+relationship 9a166df0-4748-5918-e4eb-b310af2235cc
+	fromColumn: Fato_Intenacao.ID_do_encontro
+	toColumn: Dim_Clinico.ID_do_encontro
+
+relationship 68bf3a6b-3ea7-1127-fd3e-12b86dbf5acc
+	fromColumn: Fato_Intenacao.ID_do_encontro
+	toColumn: Dim_Tratamento.ID_do_encontro
+
+relationship dec45f66-e945-0fde-a5f6-8c9220aa2b05
+	fromColumn: Fato_Intenacao.ID_do_encontro
+	toColumn: Dim_Admissao.ID_do_encontro
+
+relationship a925b9cd-b699-3546-9677-e4cf16c28d4d
+	fromColumn: Fato_Intenacao.data_completa
+	toColumn: Dim_Calendario.Date
+

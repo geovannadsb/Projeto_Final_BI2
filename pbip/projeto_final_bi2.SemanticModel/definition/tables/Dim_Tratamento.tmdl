@@ -1,0 +1,317 @@
+table Dim_Tratamento
+	lineageTag: fe3a4ec0-3f1e-47d7-98c9-1478f5524c2c
+
+	column SK_Tratamento
+		dataType: int64
+		formatString: 0
+		lineageTag: 84e02a13-9a98-4933-879b-d7cb9e23a617
+		summarizeBy: none
+		sourceColumn: SK_Tratamento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_do_encontro
+		dataType: int64
+		formatString: 0
+		lineageTag: 0484fd28-1701-4c14-8cf7-ddc0b8afde0a
+		summarizeBy: none
+		sourceColumn: ID_do_encontro
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metformina
+		dataType: string
+		lineageTag: 917470c0-75a5-45c4-beb5-894874a0db40
+		summarizeBy: none
+		sourceColumn: Metformina
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Repaglinida
+		dataType: string
+		lineageTag: b329db4c-4937-4cac-bb39-79fef032ea26
+		summarizeBy: none
+		sourceColumn: Repaglinida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clorpropamida
+		dataType: string
+		lineageTag: 50d691b5-2402-4bdf-9fe6-dcfc5f958cbf
+		summarizeBy: none
+		sourceColumn: Clorpropamida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nateglinida
+		dataType: string
+		lineageTag: 446b8454-5ed6-42df-9089-db5639bef735
+		summarizeBy: none
+		sourceColumn: Nateglinida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Acetohexamida
+		dataType: string
+		lineageTag: 7aad8caf-4bda-46ec-a2bd-98dcbd6a01d9
+		summarizeBy: none
+		sourceColumn: Acetohexamida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Glimepirida
+		dataType: string
+		lineageTag: 7ebcc842-e976-41f3-9ded-cffc64c1b4be
+		summarizeBy: none
+		sourceColumn: Glimepirida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Glipizida
+		dataType: string
+		lineageTag: 6150b4f2-5cd9-47ba-ba12-ef6dcfe549ba
+		summarizeBy: none
+		sourceColumn: Glipizida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gliburida
+		dataType: string
+		lineageTag: 407c70f9-909f-49f1-bec9-4f4ece0a01c4
+		summarizeBy: none
+		sourceColumn: Gliburida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tolbutamida
+		dataType: string
+		lineageTag: 8b0181cd-63f4-4b9b-8269-134dbc778eb6
+		summarizeBy: none
+		sourceColumn: Tolbutamida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pioglitazona
+		dataType: string
+		lineageTag: 519764cd-b80d-4d43-b689-7f38c0ec4d79
+		summarizeBy: none
+		sourceColumn: Pioglitazona
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rosiglitazona
+		dataType: string
+		lineageTag: 47301d2a-679c-4c0c-ab0e-d9f03caa86f6
+		summarizeBy: none
+		sourceColumn: Rosiglitazona
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Acarbose
+		dataType: string
+		lineageTag: 160468af-eb3e-4156-abd1-b582b590967b
+		summarizeBy: none
+		sourceColumn: Acarbose
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Miglitol
+		dataType: string
+		lineageTag: 019d3139-40d2-4444-a2fd-8596885f4eed
+		summarizeBy: none
+		sourceColumn: Miglitol
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Troglitazona
+		dataType: string
+		lineageTag: 7e1926cd-b60e-4211-aadb-14a1725462de
+		summarizeBy: none
+		sourceColumn: Troglitazona
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tolazamida
+		dataType: string
+		lineageTag: 19db1b4c-cba9-4558-bce2-6021c6d8062b
+		summarizeBy: none
+		sourceColumn: Tolazamida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Examida
+		dataType: string
+		lineageTag: 37611abe-0c4c-4229-ab25-ffbe5c05da3f
+		summarizeBy: none
+		sourceColumn: Examida
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sitagliptin
+		dataType: string
+		lineageTag: 02627247-52f4-430c-b63e-50bcc220d12d
+		summarizeBy: none
+		sourceColumn: Sitagliptin
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Insulina
+		dataType: string
+		lineageTag: 1a141a99-224a-4389-a85e-16122cd706b6
+		summarizeBy: none
+		sourceColumn: Insulina
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gliburida-Metformina
+		dataType: string
+		lineageTag: 75617c5a-60cd-4397-8cdb-43caeac13ac6
+		summarizeBy: none
+		sourceColumn: Gliburida-Metformina
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Glipizida-Metformina
+		dataType: string
+		lineageTag: 20fb2009-21e4-4c93-b4e4-8f08f8169528
+		summarizeBy: none
+		sourceColumn: Glipizida-Metformina
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metformina-Rosiglitazona
+		dataType: string
+		lineageTag: 94851c29-6a4c-480d-ad38-886d9b70c726
+		summarizeBy: none
+		sourceColumn: Metformina-Rosiglitazona
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metformina_pioglitazona
+		dataType: string
+		lineageTag: a74021cd-d059-4f95-ab02-3ef846c8844b
+		summarizeBy: none
+		sourceColumn: Metformina_pioglitazona
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mudou_medicamento
+		dataType: string
+		lineageTag: e90971a8-0a20-4529-91bf-aae33d4f7fc6
+		summarizeBy: none
+		sourceColumn: Mudou_medicamento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prescricao_de_Medicamento
+		dataType: string
+		lineageTag: a7cd71a4-02ee-4ff8-8c65-d022b8130574
+		summarizeBy: none
+		sourceColumn: Prescricao_de_Medicamento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Tratamento = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\geova\OneDrive - UniCEUB\Projeto_Final_BI_II\dados\diabetic_data.csv"),[Delimiter=",", Columns=50, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"encounter_id", Int64.Type}, {"patient_nbr", Int64.Type}, {"race", type text}, {"gender", type text}, {"age", type text}, {"weight", type text}, {"admission_type_id", Int64.Type}, {"discharge_disposition_id", Int64.Type}, {"admission_source_id", Int64.Type}, {"time_in_hospital", Int64.Type}, {"payer_code", type text}, {"medical_specialty", type text}, {"num_lab_procedures", Int64.Type}, {"num_procedures", Int64.Type}, {"num_medications", Int64.Type}, {"number_outpatient", Int64.Type}, {"number_emergency", Int64.Type}, {"number_inpatient", Int64.Type}, {"diag_1", type text}, {"diag_2", type text}, {"diag_3", type text}, {"number_diagnoses", Int64.Type}, {"max_glu_serum", type text}, {"A1Cresult", type text}, {"metformin", type text}, {"repaglinide", type text}, {"nateglinide", type text}, {"chlorpropamide", type text}, {"glimepiride", type text}, {"acetohexamide", type text}, {"glipizide", type text}, {"glyburide", type text}, {"tolbutamide", type text}, {"pioglitazone", type text}, {"rosiglitazone", type text}, {"acarbose", type text}, {"miglitol", type text}, {"troglitazone", type text}, {"tolazamide", type text}, {"examide", type text}, {"citoglipton", type text}, {"insulin", type text}, {"glyburide-metformin", type text}, {"glipizide-metformin", type text}, {"glimepiride-pioglitazone", type text}, {"metformin-rosiglitazone", type text}, {"metformin-pioglitazone", type text}, {"change", type text}, {"diabetesMed", type text}, {"readmitted", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"weight", "payer_code"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas",{{"encounter_id", "ID_do_encontro"}, {"patient_nbr", "paciente_nbr"}, {"race", "raca"}, {"gender", "genero"}, {"age", "idade"}, {"admission_type_id", "ID_tipo_de_admissao"}, {"discharge_disposition_id", "ID_disposição_de_alta"}, {"admission_source_id", "ID_fonte_de_admissao"}, {"time_in_hospital", "Dias_de_Internação"}, {"medical_specialty", "especialidade_medica"}, {"num_lab_procedures", "Qtd_Exames_Laboratoriais"}, {"num_procedures", "Qtd_Outros_Procedimentos"}, {"num_medications", "Qtd_Medicamentos"}, {"number_outpatient", "Consultas_Ambulatoriais_Anterior"}, {"number_emergency", "Visitas_Pronto_Socorro"}, {"number_inpatient", "Internacoes_Anteriores"}, {"diag_1", "Diagnostico_Primario"}, {"diag_2", "Diagnostico_Segudario"}, {"diag_3", "Diagnostico_Terciario"}, {"number_diagnoses", "Total_Diagnosticos"}, {"max_glu_serum", "Teste_de_Glicemia"}, {"A1Cresult", "Exame_HbA1c"}, {"metformin", "Metformina"}, {"repaglinide", "Alteracao_na_Medicacao"}, {"nateglinide", "Nateglinida"}, {"chlorpropamide", "Clorpropamida"}, {"glimepiride", "Glimepirida"}, {"acetohexamide", "Acetohexamide"}, {"glipizide", "Glipizida"}, {"glyburide", "Gliburida"}, {"tolbutamide", "Tolbutamida"}, {"pioglitazone", "Pioglitazona"}, {"rosiglitazone", "Rosiglitazone"}, {"acarbose", "Acarbose"}, {"miglitol", "Miglitol"}, {"troglitazone", "Troglitazona"}, {"tolazamide", "Tolazamida"}, {"examide", "Examida"}, {"citoglipton", "Sitagliptin"}, {"insulin", "Insulina"}, {"glyburide-metformin", "Gliburida-Metformina"}, {"glipizide-metformin", "Glipizida-Metformina"}, {"glimepiride-pioglitazone", "Metformina-Rosiglitazona"}}),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Colunas Renomeadas",{"metformin-rosiglitazone"}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Colunas Removidas1",{{"change", "Mudou_medicamento"}, {"diabetesMed", "Prescricao_de_Medicamento"}, {"readmitted", "Readmissao"}, {"paciente_nbr", "Paciente_Nbr"}, {"raca", "Raca"}, {"genero", "Genero"}, {"idade", "Idade"}, {"metformin-pioglitazone", "Metformina_pioglitazona"}}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Colunas Renomeadas1", "Readmissao_30d", each if [Readmissao] = "<30" then 1 else 0),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Condicional Adicionada",{{"Readmissao_30d", Int64.Type}}),
+				    #"Colunas Renomeadas2" = Table.RenameColumns(#"Tipo Alterado1",{{"Diagnostico_Segudario", "Diagnostico_Secundario"}}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Colunas Renomeadas2", "Risco_DRC", each if Text.StartsWith([Diagnostico_Primario], "585") or
+				   Text.StartsWith([Diagnostico_Primario], "403") or
+				   Text.StartsWith([Diagnostico_Primario], "250.4") or
+				   Text.StartsWith([Diagnostico_Secundario], "585") or
+				   Text.StartsWith([Diagnostico_Secundario], "403") or
+				   Text.StartsWith([Diagnostico_Secundario], "250.4") or
+				   Text.StartsWith([Diagnostico_Terciario], "585") or
+				   Text.StartsWith([Diagnostico_Terciario], "403") or
+				   Text.StartsWith([Diagnostico_Terciario], "250.4")
+				then 1 else 0),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"Risco_DRC", Int64.Type}}),
+				    #"Índice Adicionado" = Table.AddIndexColumn(#"Tipo Alterado2", "Índice", 1, 1, Int64.Type),
+				    #"Personalização Adicionada1" = Table.AddColumn(#"Índice Adicionado", "Ano", each 1999 + Number.IntegerDivide([Índice] - 1, Number.IntegerDivide(101766, 10))),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Personalização Adicionada1", each true),
+				    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"Ano", Int64.Type}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado3",2009,2008,Replacer.ReplaceValue,{"Ano"}),
+				    #"Tipo Alterado4" = Table.TransformColumnTypes(#"Valor Substituído",{{"Ano", Int64.Type}}),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Tipo Alterado4", each true),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"Linhas Filtradas1",{"Índice"}),
+				    #"Colunas Renomeadas3" = Table.RenameColumns(#"Colunas Removidas2",{{"especialidade_medica", "Especialidade_medica"}, {"Alteracao_na_Medicacao", "Repaglinida"}, {"Acetohexamide", "Acetohexamida"}, {"Rosiglitazone", "Rosiglitazona"}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Colunas Renomeadas3",{"ID_do_encontro", "Metformina", "Repaglinida", "Clorpropamida", "Nateglinida", "Acetohexamida", "Glimepirida", "Glipizida", "Gliburida", "Tolbutamida", "Pioglitazona", "Rosiglitazona", "Acarbose", "Miglitol", "Troglitazona", "Tolazamida", "Examida", "Sitagliptin", "Insulina", "Gliburida-Metformina", "Glipizida-Metformina", "Metformina-Rosiglitazona", "Metformina_pioglitazona", "Mudou_medicamento", "Prescricao_de_Medicamento"}),
+				    #"Índice Adicionado1" = Table.AddIndexColumn(#"Outras Colunas Removidas", "Índice", 1, 1, Int64.Type),
+				    #"Colunas Renomeadas4" = Table.RenameColumns(#"Índice Adicionado1",{{"Índice", "SK_Tratamento"}}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Colunas Renomeadas4",{"SK_Tratamento", "ID_do_encontro", "Metformina", "Repaglinida", "Clorpropamida", "Nateglinida", "Acetohexamida", "Glimepirida", "Glipizida", "Gliburida", "Tolbutamida", "Pioglitazona", "Rosiglitazona", "Acarbose", "Miglitol", "Troglitazona", "Tolazamida", "Examida", "Sitagliptin", "Insulina", "Gliburida-Metformina", "Glipizida-Metformina", "Metformina-Rosiglitazona", "Metformina_pioglitazona", "Mudou_medicamento", "Prescricao_de_Medicamento"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Colunas Reordenadas","No","Não usa",Replacer.ReplaceText,{"Metformina", "Repaglinida", "Clorpropamida", "Nateglinida", "Acetohexamida", "Glimepirida", "Glipizida", "Gliburida", "Tolbutamida", "Pioglitazona", "Rosiglitazona", "Acarbose", "Miglitol", "Troglitazona", "Tolazamida", "Examida", "Sitagliptin", "Insulina", "Gliburida-Metformina", "Glipizida-Metformina", "Metformina-Rosiglitazona", "Metformina_pioglitazona", "Mudou_medicamento", "Prescricao_de_Medicamento"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Steady","Dose estável",Replacer.ReplaceText,{"Metformina", "Repaglinida", "Clorpropamida", "Nateglinida", "Acetohexamida", "Glimepirida", "Glipizida", "Gliburida", "Tolbutamida", "Pioglitazona", "Rosiglitazona", "Acarbose", "Miglitol", "Troglitazona", "Tolazamida", "Examida", "Sitagliptin", "Insulina", "Gliburida-Metformina", "Glipizida-Metformina", "Metformina-Rosiglitazona", "Metformina_pioglitazona"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","Up","Aumentou dose",Replacer.ReplaceText,{"Metformina", "Repaglinida", "Clorpropamida", "Nateglinida", "Acetohexamida", "Glimepirida", "Glipizida", "Gliburida", "Tolbutamida", "Pioglitazona", "Rosiglitazona", "Acarbose", "Miglitol", "Troglitazona", "Tolazamida", "Examida", "Sitagliptin", "Insulina", "Gliburida-Metformina", "Glipizida-Metformina", "Metformina-Rosiglitazona", "Metformina_pioglitazona"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","Down","Reduziu dose",Replacer.ReplaceText,{"Metformina", "Repaglinida", "Clorpropamida", "Nateglinida", "Acetohexamida", "Glimepirida", "Glipizida", "Gliburida", "Tolbutamida", "Pioglitazona", "Rosiglitazona", "Acarbose", "Miglitol", "Troglitazona", "Tolazamida", "Examida", "Sitagliptin", "Insulina", "Gliburida-Metformina", "Glipizida-Metformina", "Metformina-Rosiglitazona", "Metformina_pioglitazona"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","Não usa","Não",Replacer.ReplaceText,{"Mudou_medicamento", "Prescricao_de_Medicamento"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","Ch","Sim",Replacer.ReplaceText,{"Mudou_medicamento"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","Yes","Sim",Replacer.ReplaceText,{"Prescricao_de_Medicamento"})
+				in
+				    #"Replaced Value6"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
